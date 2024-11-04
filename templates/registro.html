@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h2>Registro en Seminarios</h2>
+    <form method="POST">
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required><br><br>
+    
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required><br><br>
+    
+        <label for="apellido">Apellido:</label>
+        <input type="text" name="apellido" required><br><br>
+    
+        <label for="turno">Turno:</label><br>
+        <input type="radio" name="turno" value="Mañana" required> Mañana
+        <input type="radio" name="turno" value="Tarde" required> Tarde
+        <input type="radio" name="turno" value="Noche" required> Noche<br><br>
+    
+        <label for="seminarios">Seminarios disponibles:</label><br>
+        <input type="checkbox" name="seminarios" value="Inteligencia Artificial"> Inteligencia Artificial<br>
+        <input type="checkbox" name="seminarios" value="Machine Learning"> Machine Learning<br>
+        <input type="checkbox" name="seminarios" value="Simulación con Arena"> Simulación con Arena<br>
+        <input type="checkbox" name="seminarios" value="Robótica Educativa"> Robótica Educativa<br><br>
+    
+        <input type="submit" value="Enviar registro">
+    </form>
+    {% endblock %}
+</body>
+</html>

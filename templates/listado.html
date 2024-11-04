@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Inscritos</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block content %}
+    <h2>Listado de Inscritos</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Turno</th>
+            <th>Seminarios</th>
+            <th>Acciones</th>
+        </tr>
+        {% for inscrito in inscritos %}
+        <tr>
+            <td>{{ loop.index }}</td>  
+            <td>{{ inscrito.fecha }}</td>
+            <td>{{ inscrito.nombre }}</td>
+            <td>{{ inscrito.apellido }}</td>
+            <td>{{ inscrito.turno }}</td>
+            <td>{{ inscrito.seminarios }}</td>
+            <td>
+                <a href="{{ url_for('eliminar', id=loop.index0) }}">Eliminar</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="7">No hay inscritos.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}
+    
+</body>
+</html>
